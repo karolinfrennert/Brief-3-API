@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
   <title>Event search</title>
 </head>
 
@@ -12,18 +13,19 @@
     <header>
       <h1>Date Planner</h1>
       <p>Feeling stumped for date ideas within you budget?</p>
-      <p>We've got you back</p>
+      <p>We've got you back!</p>
     </header>
 
     <section>
-
-      <label for="input">Where?</label>
-      <input>
-      <label for="input">Budget</label>
-      <input>
-      <label>When?</label>
-      <input>
-      <button>Search</button>
+      <form action="">
+        <label for="where">Where?</label>
+        <input id="where" name="where" type="text">
+        <label for="budget">Budget</label>
+        <input id="budget" name="budget" type="number">
+        <label for="date">When?</label>
+        <input id="date" name="date" type="date">
+        <input type="submit" value="Search" name="searchButton" id="searchButton">
+      </form>
 
     </section>
 
