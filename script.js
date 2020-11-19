@@ -17,14 +17,19 @@ let cityInput, dateInput, requestURL
 function getInput() {
     cityInput = document.getElementById("cityname").value
     dateInput = document.getElementById("date").value
+    budgetInput = document.getElementById("budget").value  
     requestURL = url.concat('?apikey=',key,'&locale=*','&',start,'=',dateInput,startTime,'&',end,'=',dateInput,endTime,'&',city,'=',cityInput)
     showResult()
 }
 
 function showResult() {
     fetch(requestURL) 
+    
     .then(response => response.json())
+    
     .then(data => {
+        console.log(budgetInput)
+        if (budgetInput <= data._embedded.events[0].priceRanges[0].max){
         let eventName = data._embedded.events[0].name
         nameEl.innerHTML = eventName
         let eventDateTime = data._embedded.events[0].dates.start.localDate + " @ " + data._embedded.events[0].dates.start.localTime
@@ -33,7 +38,17 @@ function showResult() {
         venueEl.innerHTML = eventVenue
         let eventPrice = data._embedded.events[0].priceRanges[0].min + ' - ' + data._embedded.events[0].priceRanges[0].max + ' ' + data._embedded.events[0].priceRanges[0].currency
         priceEl.innerHTML = eventPrice
+        let imageUrl = data._embedded.events[0].images[0].url
+        imageEl.src = imageUrl;    
+        console.log(data);
+    }
+    else {
+        nameEl.innerHTML = "Sorry we couldn't find something within your budget";
+    } 
+    
+    
     })
 }
 
 document.getElementById("searchButton").addEventListener("click", getInput)
+
