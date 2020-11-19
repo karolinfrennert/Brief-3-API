@@ -29,7 +29,7 @@ function showResult() {
     
     .then(data => {
         console.log(budgetInput)
-        if (budgetInput <= data._embedded.events[0].priceRanges[0].max){
+        if (budgetInput >= data._embedded.events[0].priceRanges[0].min){
         let eventName = data._embedded.events[0].name
         nameEl.innerHTML = eventName
         let eventDateTime = data._embedded.events[0].dates.start.localDate + " @ " + data._embedded.events[0].dates.start.localTime
