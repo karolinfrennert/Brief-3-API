@@ -188,9 +188,18 @@ html {
 }
 
 :root {
-  
 }
 
 .button {
   background: red;
+}
+
+#eventContent {
+  position: relative;
+}
+
+#eventContent .eventCard {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

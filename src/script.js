@@ -1,3 +1,9 @@
+import Swiper from 'swiper'
+import 'swiper/swiper-bundle.css'
+
+const swiper = new Swiper();
+console.log(swiper)
+
 const key = 'w5dwwGRRzGs6AgSz3teXnfI2FrdVGLdl'
 const url = 'https://app.ticketmaster.com/discovery/v2/events'
 const start = 'startDateTime'
@@ -39,10 +45,12 @@ function showResult() {
         //Template content
         const eventTemplate = document.querySelector("#eventTemplate")
         const eventContent = document.querySelector("#eventContent")
+        
         const cloneTemplate = eventTemplate.content.cloneNode(true)
 
         //Template elements
         const image = cloneTemplate.querySelector("#image")
+        const eventCard = cloneTemplate.querySelector(".eventCard")
         const eventName = cloneTemplate.querySelector("#eventname") 
         const eventDateTime = cloneTemplate.querySelector("#eventdatetime")
         const eventVenue = cloneTemplate.querySelector("#eventvenue")
@@ -60,28 +68,29 @@ function showResult() {
           
           const imageUrl = event.images[0].url
           image.src = imageUrl;
-          cloneTemplate.appendChild(image)
+          eventCard.appendChild(image)
 
           eventName.innerText = name
-          cloneTemplate.appendChild(eventName)        
+          eventCard.appendChild(eventName)        
           
           const startDateTime = `${dates.start.localDate} @ ${dates.start.localTime}`
           eventDateTime.innerHTML = startDateTime
-          cloneTemplate.appendChild(eventDateTime)
+          eventCard.appendChild(eventDateTime)
 
         
          const venue = _embedded.venues[0].name
          eventVenue.innerHTML = venue
-         cloneTemplate.appendChild(eventVenue)
+         eventCard.appendChild(eventVenue)
 
           const price = minPrice + ' - ' + maxPrice + ' ' + priceRanges[0].currency
           eventPrice.innerHTML = price
-          cloneTemplate.appendChild(eventPrice)
+          eventCard.appendChild(eventPrice)
 
           templateButton.innerHTML = BUTTON_TEXT
           
-          cloneTemplate.appendChild(templateButton)
+          eventCard.appendChild(templateButton)
           
+          cloneTemplate.appendChild(eventCard)
           eventContent.appendChild(cloneTemplate)
 
           eventsArray.push(event)
@@ -93,6 +102,7 @@ function showResult() {
   });
   
 }
+
 
  
 
