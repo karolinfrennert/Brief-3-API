@@ -6,19 +6,7 @@ const end = 'endDateTime'
 const endTime = 'T23:59:00Z'
 const city = 'city'
 
-let imageEl = document.getElementById("image")
-let nameEl = document.getElementById("eventname")
-let dateEl = document.getElementById("eventdatetime")
-let venueEl = document.getElementById("eventvenue")
-let priceEl = document.getElementById("eventprice")
-let button = document.getElementById("button")
-
-
-
-
-
-
-
+const BUTTON_TEXT = "Change event"
 
 let cityInput, dateInput, requestURL
 
@@ -38,6 +26,7 @@ const findMinMaxPrice = (prices) => {
   return {minPrice, maxPrice}  
 }
 
+const eventsArray = []
 
 function showResult() {
   fetch(requestURL)
@@ -58,14 +47,15 @@ function showResult() {
         const eventDateTime = cloneTemplate.querySelector("#eventdatetime")
         const eventVenue = cloneTemplate.querySelector("#eventvenue")
         const eventPrice = cloneTemplate.querySelector("#eventprice")
-        const templateButton = cloneTemplate.querySelector("#button")
+        const templateButton = cloneTemplate.querySelector("#button")   
+             
 
-        const {priceRanges, name, dates, images, venues, address} = event;
+        
+        const {priceRanges, name, dates, images, _embedded, address} = event;
 
-        if (!priceRanges && !name && !dates && !images && !venues && !address?.venues) return
+        if (!priceRanges && !name && !dates && !images && !_embedded) return        
+        const {minPrice, maxPrice} = findMinMaxPrice(priceRanges)
 
-        console.log({priceRanges, name, dates, images})
-        const {minPrice, maxPrice} = findMinMaxPrice(priceRanges);
         if (budgetInput >= minPrice) {   
           
           const imageUrl = event.images[0].url
@@ -75,48 +65,40 @@ function showResult() {
           eventName.innerText = name
           cloneTemplate.appendChild(eventName)        
           
-          const startDateTime = `${start.localDate} @ ${start.localTime}`
+          const startDateTime = `${dates.start.localDate} @ ${dates.start.localTime}`
           eventDateTime.innerHTML = startDateTime
           cloneTemplate.appendChild(eventDateTime)
 
-        /*console.log(venue)
-         const venue = venues.address.line1
-         eventVenue.innerHTML = venue*/
+        
+         const venue = _embedded.venues[0].name
+         eventVenue.innerHTML = venue
+         cloneTemplate.appendChild(eventVenue)
 
-          const price = minPrice + ' - ' + maxPrice + ' ' + priceRanges.currency
+          const price = minPrice + ' - ' + maxPrice + ' ' + priceRanges[0].currency
           eventPrice.innerHTML = price
           cloneTemplate.appendChild(eventPrice)
 
+          templateButton.innerHTML = BUTTON_TEXT
+          
+          cloneTemplate.appendChild(templateButton)
           
           eventContent.appendChild(cloneTemplate)
+
+          eventsArray.push(event)
+          console.log(eventsArray)
         }
 
-      });
-
-      
+      });     
      
   });
   
 }
 
-
-
-  
+ 
 
 document.getElementById("searchButton").addEventListener("click", getInput)
 
 
 
-//Create button to change event
-/*const changeButton = document.createElement("button");
-changeButton.innerText = "Hey I'm a button";
-button.appendChild(changeButton);
-
-changeInnerText = () => {
-  changeButton.innerText = "Hey you clicked me";
-  changeButton.classList.add("button");
-}
-
-changeButton.addEventListener('click', changeInnerText);*/
 
 
