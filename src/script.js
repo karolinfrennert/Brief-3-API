@@ -1,10 +1,16 @@
-import Swiper from 'swiper'
+
+import "regenerator-runtime/runtime";
+import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
+Swiper.use([Navigation, Pagination])
 
-let swiper = new Swiper(".swiper-container")
+const swiper = new Swiper(".swiper-container", {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+},
+})
 
-
-console.log(swiper)
 
 const key = 'w5dwwGRRzGs6AgSz3teXnfI2FrdVGLdl'
 const url = 'https://app.ticketmaster.com/discovery/v2/events'
@@ -34,10 +40,9 @@ const findMinMaxPrice = (prices) => {
   return {minPrice, maxPrice}  
 }
 
-const eventsArray = []
 
-function showResult() {
-  fetch(requestURL)
+async function showResult() {
+  await fetch(requestURL)
     .then(response => response.json())
     .then(data => {
       const events = data._embedded.events;
@@ -98,14 +103,12 @@ function showResult() {
         }
 
       });  
-      setTimeout(() => {
-        
-      swiper.update()
-
-      console.log("updated")
-      }, 5000);
+      
   });
 
+
+
+  swiper.update()
   
 
   
