@@ -16,7 +16,7 @@
       </header>
 
       <template id="eventTemplate">
-        <section class="eventCard">
+        <section class="eventCard swiper-slider">
           <img src="" id="image" />
           <div id="eventname"></div>
           <div id="eventdatetime"></div>
@@ -39,7 +39,9 @@
           name="searchButton"
           id="searchButton"
         />
-        <div id="eventContent"></div>
+        <div class="swiper-container">
+          <div id="eventContent" class="swiper-wrapper"></div>
+        </div>
       </section>
     </main>
 

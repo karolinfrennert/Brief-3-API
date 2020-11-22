@@ -1,7 +1,9 @@
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 
-const swiper = new Swiper();
+let swiper = new Swiper(".swiper-container")
+
+
 console.log(swiper)
 
 const key = 'w5dwwGRRzGs6AgSz3teXnfI2FrdVGLdl'
@@ -14,7 +16,7 @@ const city = 'city'
 
 const BUTTON_TEXT = "Change event"
 
-let cityInput, dateInput, requestURL
+let cityInput, dateInput, budgetInput, requestURL
 
 function getInput() {
   cityInput = document.getElementById("cityname").value
@@ -93,13 +95,19 @@ function showResult() {
           cloneTemplate.appendChild(eventCard)
           eventContent.appendChild(cloneTemplate)
 
-          eventsArray.push(event)
-          console.log(eventsArray)
         }
 
-      });     
-     
+      });  
+      setTimeout(() => {
+        
+      swiper.update()
+
+      console.log("updated")
+      }, 5000);
   });
+
+  
+
   
 }
 
@@ -107,6 +115,8 @@ function showResult() {
  
 
 document.getElementById("searchButton").addEventListener("click", getInput)
+
+
 
 
 

@@ -194,12 +194,12 @@ html {
   background: red;
 }
 
-#eventContent {
-  position: relative;
+.swiper-container {
+  width: auto;
+  height: 300px;
+  background: red;
 }
-
-#eventContent .eventCard {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
