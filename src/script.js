@@ -11,7 +11,6 @@ const swiper = new Swiper(".swiper-container", {
 },
 })
 
-
 const key = 'w5dwwGRRzGs6AgSz3teXnfI2FrdVGLdl'
 const url = 'https://app.ticketmaster.com/discovery/v2/events'
 const start = 'startDateTime'
@@ -51,8 +50,7 @@ async function showResult() {
         
         //Template content
         const eventTemplate = document.querySelector("#eventTemplate")
-        const eventContent = document.querySelector("#eventContent")
-        
+        const eventContent = document.querySelector("#eventContent")        
         const cloneTemplate = eventTemplate.content.cloneNode(true)
 
         //Template elements
@@ -95,8 +93,7 @@ async function showResult() {
 
           templateButton.innerHTML = BUTTON_TEXT
           
-          eventCard.appendChild(templateButton)
-          
+          eventCard.appendChild(templateButton)          
           cloneTemplate.appendChild(eventCard)
           eventContent.appendChild(cloneTemplate)
 
