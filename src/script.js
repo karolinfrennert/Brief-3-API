@@ -2,6 +2,7 @@
 import "regenerator-runtime/runtime";
 import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
+import { getWeatherInput } from "./weather";
 Swiper.use([Navigation, Pagination])
 
 const swiper = new Swiper(".swiper-container", {
@@ -44,6 +45,8 @@ async function showResult() {
   await fetch(requestURL)
     .then(response => response.json())
     .then(data => {
+      const checkArray = data.page.totalElements;
+      if(checkArray !== 0) {
       const events = data._embedded.events;
       events.forEach(event => {
         if (!event) return
@@ -98,9 +101,11 @@ async function showResult() {
           eventContent.appendChild(cloneTemplate)
 
         }
-
+    
       });  
-      
+    } else {
+      getWeatherInput();
+    }
   });
 
 

@@ -28,11 +28,11 @@
 
       <section>
         <label for="where">Where?</label>
-        <input id="cityname" name="where" type="text" value="Stockholm" required/>
+        <input id="cityname" name="where" type="text" required/>
         <label for="budget">Budget</label>
-        <input id="budget" name="budget" type="number" value="600" required/>
+        <input id="budget" name="budget" type="number" required/>
         <label for="date">When?</label>
-        <input id="date" name="date" type="date" value="2021-03-06" required/>
+        <input id="date" name="date" type="date" required/>
         <input
           type="submit"
           value="Search"
@@ -44,6 +44,8 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next">Not for you?</div>
         </div>
+        <p id="suggestion"></p>
+        <p id="weather"></p> 
       </section>
     </main>
 
