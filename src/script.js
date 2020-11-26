@@ -9,6 +9,7 @@ const swiper = new Swiper(".swiper-container", {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
 },
+
 })
 
 const key = 'w5dwwGRRzGs6AgSz3teXnfI2FrdVGLdl'
@@ -48,6 +49,7 @@ async function showResult() {
       events.forEach(event => {
         if (!event) return
         
+        console.log(event)
         //Template content
         const eventTemplate = document.querySelector("#eventTemplate")
         const eventContent = document.querySelector("#eventContent")        
@@ -60,13 +62,13 @@ async function showResult() {
         const eventDateTime = cloneTemplate.querySelector("#eventdatetime")
         const eventVenue = cloneTemplate.querySelector("#eventvenue")
         const eventPrice = cloneTemplate.querySelector("#eventprice")
-        const templateButton = cloneTemplate.querySelector("#button")   
+        const templateA = cloneTemplate.querySelector("#a")   
              
 
         
-        const {priceRanges, name, dates, images, _embedded, address} = event;
+        const {priceRanges, name, dates, images, _embedded, url} = event;
 
-        if (!priceRanges && !name && !dates && !images && !_embedded) return        
+        if (!priceRanges && !name && !dates && !images && !_embedded && !url) return        
         const {minPrice, maxPrice} = findMinMaxPrice(priceRanges)
 
         if (budgetInput >= minPrice) {   
@@ -90,10 +92,12 @@ async function showResult() {
           const price = minPrice + ' - ' + maxPrice + ' ' + priceRanges[0].currency
           eventPrice.innerHTML = price
           eventCard.appendChild(eventPrice)
-
-          templateButton.innerHTML = BUTTON_TEXT
           
-          eventCard.appendChild(templateButton)          
+         
+          templateA.href = url
+          eventCard.appendChild(templateA)        
+          
+                   
           cloneTemplate.appendChild(eventCard)
           eventContent.appendChild(cloneTemplate)
 
@@ -102,17 +106,9 @@ async function showResult() {
       });  
       
   });
-
-
-
   swiper.update()
-  
-
-  
-}
-
-
- 
+    
+} 
 
 document.getElementById("searchButton").addEventListener("click", getInput)
 
