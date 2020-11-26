@@ -78,7 +78,7 @@ async function presentOnScreen(eventsInTheBudget) {
     getWeatherInput();
   } else {
     eventsInTheBudget.forEach(eventToPresent => {
-      const { priceRanges, name, dates, images, _embedded } = eventToPresent;
+      const { priceRanges, name, dates, images, _embedded, url } = eventToPresent;
       const { minPrice, maxPrice } = findMinMaxPrice(priceRanges);
 
       const eventTemplate = document.querySelector("#eventTemplate");
@@ -91,7 +91,7 @@ async function presentOnScreen(eventsInTheBudget) {
       const eventDateTime = cloneTemplate.querySelector("#eventdatetime");
       const eventVenue = cloneTemplate.querySelector("#eventvenue");
       const eventPrice = cloneTemplate.querySelector("#eventprice");
-      const templateButton = cloneTemplate.querySelector("#button");
+      const templateA = cloneTemplate.querySelector("#a");
 
       const imageUrl = images[0].url;
       image.src = imageUrl;
@@ -112,9 +112,11 @@ async function presentOnScreen(eventsInTheBudget) {
       eventPrice.innerHTML = price;
       eventCard.appendChild(eventPrice);
 
-      templateButton.innerHTML = BUTTON_TEXT;
-
-      eventCard.appendChild(templateButton);
+      
+      templateA.href = url
+      console.log(url)
+      eventCard.appendChild(templateA)    
+      
       cloneTemplate.appendChild(eventCard);
       eventContent.appendChild(cloneTemplate);
     });
