@@ -1,209 +1,236 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-}
-
-main {
-  display: block;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-}
-
-pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-a {
-  background-color: transparent;
-}
-
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-  text-decoration: underline dotted;
-}
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-code,
-kbd,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
-small {
-  font-size: 80%;
-}
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-img {
-  border-style: none;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-
-button,
-input {
-  overflow: visible;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-[type="button"],
-[type="reset"],
-[type="submit"],
-button {
-  -webkit-appearance: button;
-}
-
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner,
-button::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring,
-button:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
-
-progress {
-  vertical-align: baseline;
-}
-
-textarea {
-  overflow: auto;
-}
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-
-details {
-  display: block;
-}
-
-summary {
-  display: list-item;
-}
-
-[hidden],
-template {
-  display: none;
-}
-
 html {
   box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
-*,
-:after,
-:before {
+*, *:before, *:after {
   box-sizing: inherit;
 }
 
-:root {
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
 
-.button {
-  background: red;
-}
-
-.swiper-container {
-  width: 400px;
-}
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
+ol, ul {
+  list-style: none;
 }
 
 img {
+  max-width: 100%;
+  height: auto;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+:root {
+  --primary-pink: #D54570;
+  --secondary-pink: #B4355B;
+  --teal: #54B4C0;
+  --light-grey: #B5B5B5;
+  --dark-grey: #222222;
+  --shadow: 0px 3px 6px #00000029;
+  --main-font: 'M PLUS Rounded 1c', sans-serif;
+  --secondary-font: 'Helvetica Neue', sans-serif
+}
+
+body {
+  font-family: var(--main-font);
+  color: #fff;
+  background-image: url(images/balloons.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Containers */
+.wrapper {
+  width: 90vw;
+  margin: auto;
+}
+
+.topsection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottomsection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header and form */
+
+header {
+  text-align: center;
+  text-shadow: var(--shadow);
+  margin-bottom: 2em;
+}
+
+h1 {
+  font-size: 3.5em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 25em;
+}
+
+label {
+  font-size: 1.5em;
+  text-shadow: var(--shadow);
+  font-weight: 500;
+}
+
+#cityname, #budget, #date {
+  border: none;
+  padding: 1em;
+  box-shadow: var(--shadow);
+  border-radius: 1em;
+  font-family: var(--secondary-font);  
+  margin-bottom: 1em;
+}
+
+#searchButton {
+  margin: 2em auto 0;
+  background-color: var(--primary-pink);
+  color: #fff;
+  box-shadow: var(--shadow);
+  font-size: 1.2em;
+  font-family: var(--main-font);
+  font-weight: 600;
+  border: 0;
+  border-radius: .5em;
+  padding: .5em 1em .5em 1em;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+  transition: .5s background-color;
+  display: block;
+}
+
+#searchButton:hover {
+  background-color: var(--secondary-pink);
+  animation: pulse;
+  animation-duration: .5s;
+}
+
+/* Suggestion cards */
+
+.card-wrapper {
+  width: 25em;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: #fff !important;
+  margin-top: -10em !important;
+  padding: 2em;
+}
+
+.eventCard {
+  background-color: #fff;
+  border-radius: 2em;
+  text-align: center;
+  margin-bottom: 5em;
+}
+
+.eventCard img {
   width: 100%;
-  height: 200px;
+  height: auto;
+  border-radius: 2em 2em 0 0;
+}
+
+#eventname {
+  color: var(--primary-pink);
+  font-weight: 800;
+  font-size: 1.4em;
+  padding: 1em 1em 0 1em;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#eventdatetime, #eventvenue {
+  color: var(--light-grey);
+  font-weight: 600;
+}
+
+#eventprice {
+  color: var(--teal);
+  font-weight: 600;
+  padding-bottom: 2em;
+}
+
+#a {
+  display: block;
+  background-color: var(--primary-pink);
+  padding: 1em;
+  text-transform: uppercase;
+  border-radius: 0 0 2em 2em;
+  font-weight: 600;
+  transition: .5s;
+}
+
+#a:hover {
+  background-color: var(--secondary-pink);
+}
+
+/* Weather suggestion */
+
+.weather-wrapper {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2em;
+  text-shadow: var(--shadow);
+}
+
+#weather {
+  font-weight: 600;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 450px) {
+  .wrapper {
+    width: 100vw;
+  }
+
+  header {
+    width: 80vw;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .form {
+    width: 80vw;
+  }
+
+  .card-wrapper {
+    margin-top: 1em;
+    width: 80vw;
+  }
+
+  .eventCard {
+    margin-bottom: 1em;
+  }
+
+  #eventname {
+    font-size: 1.2em;
+  }
 }
