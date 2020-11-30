@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Date Planner</title>
   </head>
 
@@ -21,9 +27,14 @@
 
           <section class="form">
             <label for="where">Where?</label>
-            <input id="cityname" name="where" type="text" placeholder ="e.g Stockholm"/>
+            <input
+              id="cityname"
+              name="where"
+              type="text"
+              placeholder="e.g Stockholm"
+            />
             <label for="budget">Budget</label>
-            <input id="budget" name="budget" type="number" placeholder="0"/>
+            <input id="budget" name="budget" type="number" placeholder="0" />
             <label for="date">When?</label>
             <input id="date" name="date" type="date" />
             <input
@@ -39,11 +50,12 @@
           <div class="card-wrapper">
             <template id="eventTemplate">
               <section class="eventCard swiper-slide">
-                  <img src="" id="image" />
-                  <div id="eventname"></div>
-                  <div id="eventdatetime"></div>
-                  <div id="eventvenue"></div>
-                  <div id="eventprice"></div>                  <a id="a" href="">Read more</a>
+                <img src="" id="image" />
+                <div id="eventname"></div>
+                <div id="eventdatetime"></div>
+                <div id="eventvenue"></div>
+                <div id="eventprice"></div>
+                <a id="a" href="">Read more</a>
               </section>
             </template>
 
@@ -56,13 +68,13 @@
               <div class="weather-wrapper">
                 <p id="suggestion"></p>
                 <p id="weather"></p>
-            </div>
+              </div>
             </section>
           </div>
         </div>
       </div>
     </main>
 
-    <script src="/index.html" type="module"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
