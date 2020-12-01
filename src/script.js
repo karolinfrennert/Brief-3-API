@@ -23,13 +23,29 @@ const city = 'city'
 const result = document.getElementById("result");
 
 function getInput() {
-  let cityInput = document.getElementById("cityname").value;
-  let dateInput = document.getElementById("date").value;
+  const cityInput = document.getElementById("cityname").value;
+  const dateInput = document.getElementById("date").value;
   
-  let budgetInput = document.getElementById("budget").value || 0;
-  let requestURL = url.concat('?apikey=', key, '&locale=*', '&', start, '=', dateInput, startTime, '&', end, '=', dateInput, endTime, '&', city, '=', cityInput);
+  const budgetInput = document.getElementById("budget").value || 0;
+  const requestURL = url.concat('?apikey=', key, '&locale=*', '&', start, '=', dateInput, startTime, '&', end, '=', dateInput, endTime, '&', city, '=', cityInput);
 
-  showResult(budgetInput, requestURL);
+  if (!cityInput) {
+    document.getElementById("cityname").classList = "shake";
+    document.getElementById("cityname").placeholder = "Please enter location";
+  }
+  
+  if (!budgetInput) {
+    document.getElementById("budget").classList = "shake";
+    document.getElementById("budget").placeholder = "Please enter budget";
+  }
+
+  if (!dateInput) {
+    document.getElementById("date").classList = "shake";
+  }
+
+  else if (cityInput && budgetInput && dateInput) {
+    showResult(budgetInput, requestURL);
+  }
 }
 
 const findMinMaxPrice = (prices) => {

@@ -129,6 +129,11 @@ label {
   animation-duration: .5s;
 }
 
+.shake {
+  animation: shakeX;
+  animation-duration: 1s;
+}
+
 /* Suggestion cards */
 
 .card-wrapper {
