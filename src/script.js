@@ -20,7 +20,7 @@ const end = 'endDateTime'
 const endTime = 'T23:59:00Z'
 const city = 'city'
 
-const BUTTON_TEXT = "Change event"
+const result = document.getElementById("result");
 
 function getInput() {
   let cityInput = document.getElementById("cityname").value;
@@ -93,7 +93,7 @@ async function presentOnScreen(eventsInTheBudget) {
       const eventPrice = cloneTemplate.querySelector("#eventprice");
       const templateA = cloneTemplate.querySelector("#a");
 
-      const imageUrl = images[0].url;
+      const imageUrl = images[2].url;
       image.src = imageUrl;
       eventCard.appendChild(image);
 
@@ -130,6 +130,8 @@ async function showResult(budget, requestURL) {
     .then(events => filterEventsByBudget(events, budget))
     .then(eventsInTheBudget => presentOnScreen(eventsInTheBudget));
 
+  result.className = "bottomsection";
+  result.scrollIntoView({behavior: "smooth"})
   swiper.update();
 }
 

@@ -67,6 +67,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 /* Header and form */
@@ -136,7 +137,7 @@ label {
 
 .swiper-button-prev, .swiper-button-next {
   color: #fff !important;
-  margin-top: -10em !important;
+  margin-top: -8em !important;
   padding: 2em;
 }
 
@@ -144,12 +145,11 @@ label {
   background-color: #fff;
   border-radius: 2em;
   text-align: center;
-  margin-bottom: 5em;
 }
 
 .eventCard img {
-  width: 100%;
-  height: auto;
+  width: 25em;
+  height: 15em;
   border-radius: 2em 2em 0 0;
 }
 
@@ -222,12 +222,7 @@ label {
   }
 
   .card-wrapper {
-    margin-top: 1em;
     width: 80vw;
-  }
-
-  .eventCard {
-    margin-bottom: 1em;
   }
 
   #eventname {
