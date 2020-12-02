@@ -4,17 +4,29 @@ html {
   scroll-behavior: smooth;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -23,20 +35,23 @@ img {
   height: auto;
 }
 
-a:link, a:visited, a:hover, a:active {
+a:link,
+a:visited,
+a:hover,
+a:active {
   color: inherit;
   text-decoration: none;
 }
 
 :root {
-  --primary-pink: #D54570;
-  --secondary-pink: #B4355B;
-  --teal: #54B4C0;
-  --light-grey: #B5B5B5;
+  --primary-pink: #d54570;
+  --secondary-pink: #b4355b;
+  --teal: #54b4c0;
+  --light-grey: #b5b5b5;
   --dark-grey: #222222;
   --shadow: 0px 3px 6px #00000029;
-  --main-font: 'M PLUS Rounded 1c', sans-serif;
-  --secondary-font: 'Helvetica Neue', sans-serif
+  --main-font: "M PLUS Rounded 1c", sans-serif;
+  --secondary-font: "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -44,7 +59,7 @@ body {
   color: #fff;
   background-image: url(images/balloons.jpg);
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
@@ -96,12 +111,14 @@ label {
   font-weight: 500;
 }
 
-#cityname, #budget, #date {
+#cityname,
+#budget,
+#date {
   border: none;
   padding: 1em;
   box-shadow: var(--shadow);
   border-radius: 1em;
-  font-family: var(--secondary-font);  
+  font-family: var(--secondary-font);
   margin-bottom: 1em;
 }
 
@@ -114,19 +131,19 @@ label {
   font-family: var(--main-font);
   font-weight: 600;
   border: 0;
-  border-radius: .5em;
-  padding: .5em 1em .5em 1em;
+  border-radius: 0.5em;
+  padding: 0.5em 1em 0.5em 1em;
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  transition: .5s background-color;
+  transition: 0.5s background-color;
   display: block;
 }
 
 #searchButton:hover {
   background-color: var(--secondary-pink);
   animation: pulse;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 .shake {
@@ -140,7 +157,8 @@ label {
   width: 25em;
 }
 
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   color: #fff !important;
   margin-top: -8em !important;
   padding: 2em;
@@ -169,7 +187,8 @@ label {
   white-space: nowrap;
 }
 
-#eventdatetime, #eventvenue {
+#eventdatetime,
+#eventvenue {
   color: var(--light-grey);
   font-weight: 600;
 }
@@ -187,7 +206,7 @@ label {
   text-transform: uppercase;
   border-radius: 0 0 2em 2em;
   font-weight: 600;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 #a:hover {
@@ -200,7 +219,7 @@ label {
   text-align: center;
   color: #fff;
   font-size: 1.2em;
-  text-shadow: var(--shadow);
+  text-shadow: 2px 2px 3px black;
 }
 
 #weather {
@@ -218,6 +237,7 @@ label {
   display: none;
   margin-top: 2em;
   text-align: center;
+  text-shadow: var(--shadow);
 }
 
 .fa-chevron-up {
