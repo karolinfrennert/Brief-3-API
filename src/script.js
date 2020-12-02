@@ -101,9 +101,14 @@ function clearPreviousSearch() {
 
 }
 
-async function presentOnScreen(eventsInTheBudget) {
-  clearPreviousSearch()
+function showArrowIcon () {
+  document.getElementById("arrowIcon").style.display = "block";
+  document.getElementById("backToTop").style.display = "block";
+}
 
+async function presentOnScreen(eventsInTheBudget) {
+  clearPreviousSearch();
+  showArrowIcon();
   if (eventsInTheBudget.length <= 0) {
     getWeatherInput();
   } else {

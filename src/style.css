@@ -207,6 +207,23 @@ label {
   font-weight: 600;
 }
 
+#backToTop {
+  font-family: var(--main-font);
+  display: none;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#arrowIcon {
+  display: none;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.fa-chevron-up {
+  font-size: 2em;
+}
+
 /* Media queries */
 
 @media screen and (max-width: 450px) {
