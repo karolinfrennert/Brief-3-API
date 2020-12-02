@@ -12,8 +12,8 @@ const getWeatherInput = () => {
     showWeatherResult();
 }
 
-const showWeatherResult = () => {
-    fetch(requestWeatherURL) 
+const showWeatherResult = async() => {
+    await fetch(requestWeatherURL) 
      .then(response => response.json())
     
      .then(data => {

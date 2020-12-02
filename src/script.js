@@ -2,7 +2,7 @@
 import "regenerator-runtime/runtime";
 import Swiper, { Navigation, Pagination } from 'swiper'
 import 'swiper/swiper-bundle.css'
-import { getWeatherInput } from "./weather";
+import { getWeatherInput, suggestion, weatherParagraph } from "./weather";
 Swiper.use([Navigation, Pagination])
 
 const swiper = new Swiper(".swiper-container", {
@@ -20,6 +20,9 @@ const end = 'endDateTime'
 const endTime = 'T23:59:00Z'
 const city = 'city'
 
+const eventTemplate = document.querySelector("#eventTemplate");
+const eventContent = document.querySelector("#eventContent");
+
 const result = document.getElementById("result");
 
 function getInput() {
@@ -28,6 +31,8 @@ function getInput() {
   
   const budgetInput = document.getElementById("budget").value || 0;
   const requestURL = url.concat('?apikey=', key, '&locale=*', '&', start, '=', dateInput, startTime, '&', end, '=', dateInput, endTime, '&', city, '=', cityInput);
+
+
 
   if (!cityInput) {
     document.getElementById("cityname").classList = "shake";
@@ -89,16 +94,22 @@ async function filterEventsByBudget(events, budget) {
   return eventsInTheBudget;
 }
 
+function clearPreviousSearch() {
+  eventContent.innerHTML = ""
+  suggestion.innerHTML = ""
+  weatherParagraph.innerHTML = ""
+
+}
+
 async function presentOnScreen(eventsInTheBudget) {
+  clearPreviousSearch()
+
   if (eventsInTheBudget.length <= 0) {
     getWeatherInput();
   } else {
     eventsInTheBudget.forEach(eventToPresent => {
       const { priceRanges, name, dates, images, _embedded, url } = eventToPresent;
-      const { minPrice, maxPrice } = findMinMaxPrice(priceRanges);
-
-      const eventTemplate = document.querySelector("#eventTemplate");
-      const eventContent = document.querySelector("#eventContent");
+      const { minPrice, maxPrice } = findMinMaxPrice(priceRanges);      
       const cloneTemplate = eventTemplate.content.cloneNode(true);
 
       const image = cloneTemplate.querySelector("#image");
