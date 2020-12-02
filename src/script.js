@@ -108,7 +108,7 @@ function clearPreviousSearch() {
 function changeDisplayToBlock () {
   document.getElementById("arrowIcon").style.display = "block";
   document.getElementById("backToTop").style.display = "block";
-  document.querySelector(".swiper-pagination").style.display = "block";
+  
 }
 
 async function presentOnScreen(eventsInTheBudget) {
@@ -117,10 +117,12 @@ async function presentOnScreen(eventsInTheBudget) {
   if (eventsInTheBudget.length <= 0) {
     getWeatherInput();
   } else {
+    document.querySelector(".swiper-pagination").style.display = "block";
+
     eventsInTheBudget.forEach(eventToPresent => {
       const { priceRanges, name, dates, images, _embedded, url } = eventToPresent;
       const { minPrice, maxPrice } = findMinMaxPrice(priceRanges);      
-      const cloneTemplate = eventTemplate.content.cloneNode(true);
+      const cloneTemplate = eventTemplate.content.cloneNode(true);     
 
       const image = cloneTemplate.querySelector("#image");
       const eventCard = cloneTemplate.querySelector(".eventCard");

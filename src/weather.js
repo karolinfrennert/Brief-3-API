@@ -8,6 +8,7 @@ const getWeatherInput = () => {
     const weatherURL = 'https://api.openweathermap.org/data/2.5/weather';
     const cityInput = document.getElementById('cityname').value;
     requestWeatherURL = weatherURL.concat('?q=' + cityInput + '&units=metric' + '&appid=' + key);
+    document.querySelector(".swiper-pagination").style.display = "none";
 
     showWeatherResult();
 }
