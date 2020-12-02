@@ -138,10 +138,8 @@ async function presentOnScreen(eventsInTheBudget) {
       const price = minPrice + ' - ' + maxPrice + ' ' + priceRanges[0].currency;
       eventPrice.innerHTML = price;
       eventCard.appendChild(eventPrice);
-
       
       templateA.href = url
-      console.log(url)
       eventCard.appendChild(templateA)    
       
       cloneTemplate.appendChild(eventCard);
