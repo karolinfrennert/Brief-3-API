@@ -10,6 +10,10 @@ const swiper = new Swiper(".swiper-container", {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+  },
 })
 
 const key = 'w5dwwGRRzGs6AgSz3teXnfI2FrdVGLdl'
@@ -101,14 +105,15 @@ function clearPreviousSearch() {
 
 }
 
-function showArrowIcon () {
+function changeDisplayToBlock () {
   document.getElementById("arrowIcon").style.display = "block";
   document.getElementById("backToTop").style.display = "block";
+  document.querySelector(".swiper-pagination").style.display = "block";
 }
 
 async function presentOnScreen(eventsInTheBudget) {
   clearPreviousSearch();
-  showArrowIcon();
+  changeDisplayToBlock();
   if (eventsInTheBudget.length <= 0) {
     getWeatherInput();
   } else {

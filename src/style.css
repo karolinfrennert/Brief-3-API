@@ -160,7 +160,7 @@ label {
 .swiper-button-prev,
 .swiper-button-next {
   color: #fff !important;
-  margin-top: -8em !important;
+  margin-top: -6em !important;
   padding: 2em;
 }
 
@@ -242,6 +242,13 @@ label {
 
 .fa-chevron-up {
   font-size: 2em;
+}
+
+.swiper-pagination {
+  position: static !important;
+  margin-bottom: 2rem;
+  text-shadow: var(--shadow);
+  display: none;
 }
 
 /* Media queries */
